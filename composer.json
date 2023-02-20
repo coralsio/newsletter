@@ -1,0 +1,49 @@
+{
+    "name": "corals/newsletter",
+    "description": "New Sletter",
+    "keywords": [
+        "New",
+        "Sletter"
+    ],
+    "homepage": "https://github.com/coralsio/newsletter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "corals",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Corals\\Modules\\Newsletter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "laravel/pint": "^1.0"
+    },
+    "require": {
+        "jenssegers/agent": "^2.6"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Corals\\Modules\\Newsletter\\NewsletterServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}

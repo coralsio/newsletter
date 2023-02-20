@@ -1,0 +1,10 @@
+3.0
+upgrade to laravel 7
+new LARASHIP features
+-------------------------------------
+2.1
+fix Widgets
+----------------------
+2.0
+Laravel 6 Upgrade
+------------------------------------

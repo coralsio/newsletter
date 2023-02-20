@@ -1,0 +1,17 @@
+{
+    "code": "corals-newsletter",
+    "name": "Newsletter",
+    "author": "Corals",
+    "type": "module",
+    "description": "Newsletter mail lists and subscribers",
+    "namespace": "Corals\\Modules\\Newsletter\\",
+    "provider": "NewsletterServiceProvider",
+    "version": "3.0",
+    "load_order": "900",
+    "folder": "Newsletter",
+    "autoload": "psr-4",
+    "icon": "fa fa-file-text-o",
+    "require": {
+        "corals-foundation": "^6.0"
+    }
+}
