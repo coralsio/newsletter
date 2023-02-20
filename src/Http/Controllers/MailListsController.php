@@ -16,7 +16,7 @@ class MailListsController extends BaseController
     {
         $this->resource_url = config('newsletter.models.mail_list.resource_url');
 
-        $this->resource_model =new MailList();
+        $this->resource_model = new MailList();
 
         $this->title = 'Newsletter::module.mail_list.title';
         $this->title_singular = 'Newsletter::module.mail_list.title_singular';

@@ -39,7 +39,6 @@ class SubscriberImportRequest extends BaseRequest
         }
 
         if ($this->isUpdate()) {
-
         }
 
         return $rules;
@@ -51,5 +50,4 @@ class SubscriberImportRequest extends BaseRequest
             'subscribers_file.mimetypes' => trans('Newsletter::validation.subscriber_import.subscribers_file.mimetypes'),
         ];
     }
-
 }

@@ -33,7 +33,7 @@ class SubscriberTransformer extends BaseTransformer
             'mail_lists_count' => $subscriber->mail_lists_count ? generatePopover(formatArrayAsLabels($mailLists), $subscriber->mail_lists_count) : '-',
             'created_at' => format_date($subscriber->created_at),
             'updated_at' => format_date($subscriber->updated_at),
-            'action' => $this->actions($subscriber)
+            'action' => $this->actions($subscriber),
         ];
 
         return parent::transformResponse($transformedArray);

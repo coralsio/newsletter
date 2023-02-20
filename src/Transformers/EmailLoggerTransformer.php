@@ -21,9 +21,6 @@ class EmailLoggerTransformer extends BaseTransformer
      */
     public function transform(EmailLogger $emailLogger)
     {
-
-
-
         $transformedArray = [
             'id' => $emailLogger->id,
             'subject' => '<a href="' . $emailLogger->getShowURL() . '">' . \Str::limit($emailLogger->email->subject, 50) . '</a>',
@@ -31,11 +28,11 @@ class EmailLoggerTransformer extends BaseTransformer
             'subscriber_email' => $emailLogger->subscriber->email,
             'status' => formatStatusAsLabels($emailLogger->status, [
                 'text' => trans('Newsletter::attributes.email_logger.status_options.' . $emailLogger->status),
-                'level' => config('newsletter.models.email_logger.status_level.' . $emailLogger->status)
+                'level' => config('newsletter.models.email_logger.status_level.' . $emailLogger->status),
             ]),
             'created_at' => format_date($emailLogger->email->created_at),
             'updated_at' => format_date($emailLogger->email->updated_at),
-            'action' => $this->actions($emailLogger)
+            'action' => $this->actions($emailLogger),
         ];
 
         return parent::transformResponse($transformedArray);

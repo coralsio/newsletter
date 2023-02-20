@@ -56,4 +56,3 @@ Breadcrumbs::register('email_show', function ($breadcrumbs) {
     $breadcrumbs->parent('emails');
     $breadcrumbs->push(view()->shared('title_singular'));
 });
-

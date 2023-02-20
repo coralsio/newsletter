@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Corals\Modules\Newsletter\Excel;
-
 
 use Maatwebsite\Excel\Concerns\FromArray;
 

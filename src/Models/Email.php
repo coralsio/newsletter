@@ -9,7 +9,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Email extends BaseModel
 {
-    use PresentableTrait, LogsActivity, SoftDeletes;
+    use PresentableTrait;
+    use LogsActivity;
+    use SoftDeletes;
 
     /**
      *  Model configuration.

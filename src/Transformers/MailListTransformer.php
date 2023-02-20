@@ -30,7 +30,7 @@ class MailListTransformer extends BaseTransformer
             'subscribers_count' => $mailList->subscribers_count ? '<a href="' . url($this->resource_url . "/$mailList->hashed_id/subscribers") . '"><i class="fa fa-id-card-o fa-fw"></i> ' . $mailList->subscribers_count . '</a>' : '-',
             'created_at' => format_date($mailList->created_at),
             'updated_at' => format_date($mailList->updated_at),
-            'action' => $this->actions($mailList)
+            'action' => $this->actions($mailList),
         ];
 
         return parent::transformResponse($transformedArray);

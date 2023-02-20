@@ -2,12 +2,10 @@
 
 namespace Corals\Modules\Newsletter\Facades;
 
-
 use Illuminate\Support\Facades\Facade;
 
 class Newsletter extends Facade
 {
-
     /**
      * @return mixed
      */

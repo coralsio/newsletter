@@ -6,7 +6,6 @@ use Corals\Modules\Newsletter\Models\MailList;
 
 class MailListObserver
 {
-
     /**
      * @param MailList $mailList
      */

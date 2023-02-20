@@ -9,7 +9,7 @@ use Corals\User\Models\User;
 class EmailLoggerPolicy extends BasePolicy
 {
     protected $skippedAbilities = [
-        'sendEmail' , 'create'
+        'sendEmail' , 'create',
     ];
 
     /**
@@ -21,5 +21,4 @@ class EmailLoggerPolicy extends BasePolicy
     {
         return in_array($emailLogger->status, ['failed', 'draft']);
     }
-
 }

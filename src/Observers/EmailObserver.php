@@ -2,12 +2,10 @@
 
 namespace Corals\Modules\Newsletter\Observers;
 
-
 use Corals\Modules\Newsletter\Models\Email;
 
 class EmailObserver
 {
-
     /**
      * @param Email $email
      */
@@ -20,9 +18,8 @@ class EmailObserver
      */
     public function deleting(Email $email)
     {
-        $email->emailLoggers()->each(function ($emailLogger){
-           $emailLogger->delete();
+        $email->emailLoggers()->each(function ($emailLogger) {
+            $emailLogger->delete();
         });
     }
-
 }

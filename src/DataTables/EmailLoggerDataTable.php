@@ -3,8 +3,8 @@
 namespace Corals\Modules\Newsletter\DataTables;
 
 use Corals\Foundation\DataTables\BaseDataTable;
-use Corals\Modules\Newsletter\Models\EmailLogger;
 use Corals\Modules\Newsletter\Models\Email;
+use Corals\Modules\Newsletter\Models\EmailLogger;
 use Corals\Modules\Newsletter\Transformers\EmailLoggerTransformer;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -60,5 +60,4 @@ class EmailLoggerDataTable extends BaseDataTable
             'created_at' => ['title' => trans('Corals::attributes.created_at'), 'class' => 'col-md-2', 'type' => 'date', 'active' => true],
         ];
     }
-
 }

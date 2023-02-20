@@ -31,7 +31,7 @@ class MailListRequest extends BaseRequest
 
         if ($this->isUpdate() || $this->isStore()) {
             $rules = array_merge($rules, [
-                'status' => 'required'
+                'status' => 'required',
             ]);
         }
 

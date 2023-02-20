@@ -9,7 +9,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class EmailLogger extends BaseModel
 {
-    use PresentableTrait, LogsActivity,SoftDeletes;
+    use PresentableTrait;
+    use LogsActivity;
+    use SoftDeletes;
 
     /**
      *  Model configuration.
@@ -34,9 +36,9 @@ class EmailLogger extends BaseModel
     {
         return $this->belongsTo(Subscriber::class);
     }
+
     public function email()
     {
         return $this->belongsTo(Email::class);
     }
-
 }

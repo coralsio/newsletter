@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Newsletter\database\seeds;
 
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class NewsletterSettingsDatabaseSeeder extends Seeder

@@ -29,7 +29,7 @@ class EmailTransformer extends BaseTransformer
             'email_body' => $email->email_body,
             'status' => formatStatusAsLabels($email->status, [
                 'text' => trans('Newsletter::attributes.email.status_options.' . $email->status),
-                'level' => config('newsletter.models.email.status_level.' . $email->status)
+                'level' => config('newsletter.models.email.status_level.' . $email->status),
             ]),
             'mail_lists' => formatArrayAsLabels(MailList::query()->whereIn('id', $email->mail_lists ?? [])->pluck('name')->toArray() ?: [], 'success', '<i class="fa fa-folder-open"></i>') ?: '-',
             'subscribers' => formatArrayAsLabels(Subscriber::query()->whereIn('id', $email->subscribers ?? [])->pluck('name')->toArray() ?: [], 'success', '<i class="fa fa-folder-open"></i>') ?: '-',

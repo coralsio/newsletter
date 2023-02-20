@@ -9,7 +9,7 @@ use Corals\User\Models\User;
 class EmailPolicy extends BasePolicy
 {
     protected $skippedAbilities = [
-        'update', 'sendEmail'
+        'update', 'sendEmail',
     ];
 
     /**
@@ -21,6 +21,7 @@ class EmailPolicy extends BasePolicy
         if ($user->can('Newsletter::email.view')) {
             return true;
         }
+
         return false;
     }
 
@@ -57,6 +58,7 @@ class EmailPolicy extends BasePolicy
         if ($user->can('Newsletter::email.delete')) {
             return true;
         }
+
         return false;
     }
 
@@ -69,5 +71,4 @@ class EmailPolicy extends BasePolicy
     {
         return $email->status === 'draft';
     }
-
 }

@@ -22,11 +22,12 @@ class NewsletterMenuDatabaseSeeder extends Seeder
             'description' => 'Newsletter Menu Item',
             'icon' => 'fa fa-file-text-o',
             'target' => null, 'roles' => '["1"]',
-            'order' => 0
+            'order' => 0,
         ]);
 
         // seed subscriptions children menu
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 // Mail-list
                 [
                     'parent_id' => $newsletter_menu_id,
@@ -37,7 +38,7 @@ class NewsletterMenuDatabaseSeeder extends Seeder
                     'description' => 'Mail list List Menu Item',
                     'icon' => 'fa fa-list',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 // Subscriber
                 [
@@ -49,7 +50,7 @@ class NewsletterMenuDatabaseSeeder extends Seeder
                     'description' => 'Subscribers List Menu Item',
                     'icon' => 'fa fa-id-card-o',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
             ]
         );
@@ -64,10 +65,11 @@ class NewsletterMenuDatabaseSeeder extends Seeder
             'description' => 'Emails List Menu Item',
             'icon' => 'fa fa-envelope',
             'target' => null, 'roles' => '["1"]',
-            'order' => 0
+            'order' => 0,
 
         ]);
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 // E-Mail
                 [
                     'parent_id' => $newsletter_email_id,
@@ -78,7 +80,7 @@ class NewsletterMenuDatabaseSeeder extends Seeder
                     'description' => 'Emails List Menu Item',
                     'icon' => 'fa fa-envelope',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 // E-Mail Logger
                 [
@@ -90,11 +92,9 @@ class NewsletterMenuDatabaseSeeder extends Seeder
                     'description' => 'Email Stats List Menu Item',
                     'icon' => 'fa fa-envelope',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
             ]
         );
-
-
     }
 }

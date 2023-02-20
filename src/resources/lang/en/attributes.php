@@ -11,7 +11,7 @@ return [
             'sent' => 'Sent',
             'draft' => 'Draft',
             'trash' => 'Trash',
-        ]
+        ],
     ],
     'email_logger' => [
         'browser_information' => 'Browser Information',
@@ -27,8 +27,8 @@ return [
             'draft' => 'Draft',
             'sent' => 'Sent',
             'opened' => 'Opened',
-            'failed' => 'Failed'
-        ]
+            'failed' => 'Failed',
+        ],
     ],
     'subscriber' => [
         'email' => 'Email',

@@ -32,9 +32,10 @@ class MailListSubscriberDataTable extends BaseDataTable
     public function query(MailList $model)
     {
         $mailList = $this->request->route('mailList');
-        if (!$mailList) {
+        if (! $mailList) {
             abort('404');
         }
+
         return $mailList->subscribers()->where('newsletter_mail_list_subscriber.list_id', $mailList->id)->withCount('mailLists');
     }
 
@@ -65,5 +66,4 @@ class MailListSubscriberDataTable extends BaseDataTable
             'updated_at' => ['title' => trans('Corals::attributes.updated_at'), 'class' => 'col-md-2', 'type' => 'date', 'active' => true],
         ];
     }
-
 }

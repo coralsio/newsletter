@@ -2,17 +2,15 @@
 
 namespace Corals\Modules\Newsletter\Widgets;
 
-use ConsoleTVs\Charts\Facades\Charts;
 use Corals\Modules\Newsletter\Charts\EmailLoggerByBrowser;
 
 class EmailLoggerByBrowserWidget
 {
-
-    function __construct()
+    public function __construct()
     {
     }
 
-    function run($args)
+    public function run($args)
     {
         return rescue(function () use ($args) {
             $email = $args['email'] ?? null;
@@ -34,13 +32,11 @@ class EmailLoggerByBrowserWidget
                     colorschemes: {
                         scheme: \'brewer.Paired12\'
                     }
-                }'
+                }',
             ]);
 
 
             return view('Corals::chart')->with(['chart' => $chart])->render();
-
-
         });
     }
 }

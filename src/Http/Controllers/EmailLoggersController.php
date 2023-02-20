@@ -37,7 +37,6 @@ class EmailLoggersController extends BaseController
         return $dataTable->render('Newsletter::email_loggers.index');
     }
 
-
     /**
      * @param EmailRequest $request
      * @param EmailLogger $emailLogger
