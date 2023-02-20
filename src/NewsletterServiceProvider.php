@@ -13,6 +13,7 @@ use Corals\Modules\Newsletter\Widgets\EmailLoggerByBrowserWidget;
 use Corals\Modules\Newsletter\Widgets\EmailLoggerByDeviceTypeWidget;
 use Corals\Modules\Newsletter\Widgets\EmailLoggerByPlatformWidget;
 use Corals\Modules\Newsletter\Widgets\EmailLoggerByStatusWidget;
+use Corals\Settings\Facades\Modules;
 use Corals\Settings\Facades\Settings;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
