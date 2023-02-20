@@ -99,7 +99,7 @@ class EmailsTest extends TestCase
                 $this->assertDatabaseHas('newsletter_emails', [
                     'subject' => $this->email->subject,
                     'email_body' => $this->email->email_body,
-                    'status' => 'send'
+                    'status' => 'sent'
                 ]);
 
                 $response->assertRedirect('newsletter/emails');
