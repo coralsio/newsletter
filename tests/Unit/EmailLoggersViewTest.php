@@ -32,5 +32,4 @@ class EmailLoggersViewTest extends TestCase
 
         $response->assertStatus(200)->assertViewIs('Newsletter::emails.index');
     }
-
 }
