@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Corals\Modules\Newsletter\Excel;
 
 use Corals\Modules\Newsletter\Models\MailList;
@@ -38,8 +37,10 @@ class SubscribersImport implements ToArray
 
             $mailLists = $row['mail_lists'] ?? $row['mail lists'] ?? '';
 
-            $mailLists = array_map('trim',
-                explode(config('newsletter.models.subscriber.import.delimiter'), $mailLists));
+            $mailLists = array_map(
+                'trim',
+                explode(config('newsletter.models.subscriber.import.delimiter'), $mailLists)
+            );
 
             $mailListsObjects = MailList::query()->whereIn('name', $mailLists)->get();
 
@@ -50,10 +51,10 @@ class SubscribersImport implements ToArray
                 'email' => 'required|email|max:191|unique:newsletter_subscribers,email',
             ]);
 
-            if ($validator->fails() || !$validMailLists) {
+            if ($validator->fails() || ! $validMailLists) {
                 $errors = $validator->errors()->all();
 
-                if (!$validMailLists) {
+                if (! $validMailLists) {
                     $errors = array_merge($errors, [trans('Newsletter::exception.subscribers.unknown_mail_list')]);
                 }
 
@@ -84,7 +85,9 @@ class SubscribersImport implements ToArray
             session()->put('import-subscribers-report', storage_path('app/' . $exportName));
         }
 
-        flash(trans('Newsletter::messages.subscriber.success.import',
-            ['successCount' => $successCounter, 'wrongCount' => $wrongCounter]))->success();
+        flash(trans(
+            'Newsletter::messages.subscriber.success.import',
+            ['successCount' => $successCounter, 'wrongCount' => $wrongCounter]
+        ))->success();
     }
 }

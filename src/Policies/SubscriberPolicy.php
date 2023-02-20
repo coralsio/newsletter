@@ -8,7 +8,6 @@ use Corals\User\Models\User;
 
 class SubscriberPolicy extends BasePolicy
 {
-
     /**
      * @param User $user
      * @return bool
@@ -18,6 +17,7 @@ class SubscriberPolicy extends BasePolicy
         if ($user->can('Newsletter::subscriber.view')) {
             return true;
         }
+
         return false;
     }
 
@@ -40,6 +40,7 @@ class SubscriberPolicy extends BasePolicy
         if ($user->can('Newsletter::subscriber.update')) {
             return true;
         }
+
         return false;
     }
 
@@ -53,7 +54,7 @@ class SubscriberPolicy extends BasePolicy
         if ($user->can('Newsletter::subscriber.delete')) {
             return true;
         }
+
         return false;
     }
-
 }

@@ -6,7 +6,6 @@ use Corals\Modules\Newsletter\Models\Subscriber;
 
 class SubscriberObserver
 {
-
     /**
      * @param Subscriber $subscriber
      */

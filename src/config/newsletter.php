@@ -6,7 +6,7 @@ return [
             'presenter' => \Corals\Modules\Newsletter\Transformers\SubscriberPresenter::class,
             'resource_url' => 'newsletter/subscribers',
             'import' => [
-                'delimiter' => ','
+                'delimiter' => ',',
             ],
         ],
         'mail_list' => [
@@ -35,9 +35,9 @@ return [
                     'data' => [
                         'action' => 'post',
                         'table' => '.dataTableBuilder',
-                    ]
+                    ],
                 ],
-            ]
+            ],
         ],
         'email_logger' => [
             'presenter' => \Corals\Modules\Newsletter\Transformers\EmailLoggerPresenter::class,
@@ -46,7 +46,7 @@ return [
                 'draft' => 'Newsletter::attributes.email_logger.status_options.draft',
                 'sent' => 'Newsletter::attributes.email_logger.status_options.sent',
                 'opened' => 'Newsletter::attributes.email_logger.status_options.opened',
-                'failed' => 'Newsletter::attributes.email_logger.status_options.failed'
+                'failed' => 'Newsletter::attributes.email_logger.status_options.failed',
             ],
             'status_level' => [
                 'sent' => 'warning',
@@ -64,9 +64,9 @@ return [
                     'data' => [
                         'action' => 'post',
                         'table' => '.dataTableBuilder',
-                    ]
+                    ],
                 ],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

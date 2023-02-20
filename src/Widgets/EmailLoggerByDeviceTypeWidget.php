@@ -6,12 +6,11 @@ use Corals\Modules\Newsletter\Charts\EmailLoggerByDeviceType;
 
 class EmailLoggerByDeviceTypeWidget
 {
-
-    function __construct()
+    public function __construct()
     {
     }
 
-    function run($args)
+    public function run($args)
     {
         return rescue(function () use ($args) {
             $email = $args['email'] ?? null;
@@ -32,12 +31,11 @@ class EmailLoggerByDeviceTypeWidget
                     colorschemes: {
                         scheme: \'brewer.Paired12\'
                     }
-                }'
+                }',
             ]);
 
 
             return view('Corals::chart')->with(['chart' => $chart])->render();
-
         });
     }
 }

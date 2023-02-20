@@ -4,12 +4,12 @@ namespace Corals\Modules\Newsletter\Models;
 
 use Corals\Foundation\Models\BaseModel;
 use Corals\Foundation\Transformers\PresentableTrait;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class MailList extends BaseModel
 {
-    use PresentableTrait, LogsActivity;
+    use PresentableTrait;
+    use LogsActivity;
 
     /**
      *  Model configuration.
@@ -23,8 +23,11 @@ class MailList extends BaseModel
 
     public function subscribers()
     {
-        return $this->belongsToMany(Subscriber::class,
-            'newsletter_mail_list_subscriber', 'list_id', 'subscriber_id');
+        return $this->belongsToMany(
+            Subscriber::class,
+            'newsletter_mail_list_subscriber',
+            'list_id',
+            'subscriber_id'
+        );
     }
-
 }

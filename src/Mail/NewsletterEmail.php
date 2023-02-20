@@ -2,20 +2,19 @@
 
 namespace Corals\Modules\Newsletter\Mail;
 
-use Corals\Modules\Newsletter\Models\EmailLogger;
 use Corals\Modules\Newsletter\Models\Email;
-use Corals\Modules\Newsletter\Models\Subscriber;
-use Corals\User\Models\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class NewsletterEmail extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
-    public $email, $api_call_id;
+    public $email;
+    public $api_call_id;
 
     /**
      * NewsletterEmail constructor.

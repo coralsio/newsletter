@@ -16,7 +16,7 @@ return [
     'mail_list' => [
         'title' => 'Mail Lists',
         'title_singular' => 'Mail List',
-        'subscribers_title' => '[:name] Mail list subscribers'
+        'subscribers_title' => '[:name] Mail list subscribers',
     ],
     'subscriber' => [
         'title' => 'Subscribers',
@@ -24,6 +24,6 @@ return [
     ],
     'subscriber_import' => [
         'title' => 'Import Subscribers',
-        'title_singular' => 'Import Subscribers'
-    ]
+        'title_singular' => 'Import Subscribers',
+    ],
 ];

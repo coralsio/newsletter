@@ -4,8 +4,8 @@ namespace Corals\Modules\Newsletter\database\seeds;
 
 use Carbon\Carbon;
 use Corals\Modules\Newsletter\Models\Subscriber;
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class NewsletterSamplesDatabaseSeeder extends Seeder

@@ -58,7 +58,6 @@ class NewsletterServiceProvider extends ServiceProvider
         Settings::addCustomFieldModel(Email::class);
     }
 
-
     protected function registerWidgets()
     {
         \Shortcode::addWidget('email_logger_by_status', EmailLoggerByStatusWidget::class);

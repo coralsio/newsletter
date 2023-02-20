@@ -6,7 +6,6 @@ use Corals\Foundation\Transformers\FractalPresenter;
 
 class EmailLoggerPresenter extends FractalPresenter
 {
-
     /**
      * @param array $extras
      * @return EmailLoggerTransformer|\League\Fractal\TransformerAbstract

@@ -98,7 +98,6 @@ class NewsletterTables extends Migration
             $table->foreign('subscriber_id')->references('id')->on('newsletter_subscribers')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('email_id')->references('id')->on('newsletter_emails')->onUpdate('cascade')->onDelete('cascade');
         });
-
     }
 
     /**
@@ -113,6 +112,5 @@ class NewsletterTables extends Migration
         Schema::dropIfExists('newsletter_mail_lists');
         Schema::dropIfExists('newsletter_subscribers');
         Schema::dropIfExists('newsletter_emails');
-
     }
 }

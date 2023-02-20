@@ -2,13 +2,13 @@
 
 namespace Corals\Modules\Newsletter\Classes;
 
-use Corals\Modules\Newsletter\Models\EmailLogger;
-use Corals\Modules\Newsletter\Models\Subscriber;
 use Corals\Modules\Newsletter\Mail\NewsletterEmail;
-use Jenssegers\Agent\Agent;
 use Corals\Modules\Newsletter\Models\Email;
+use Corals\Modules\Newsletter\Models\EmailLogger;
 use Corals\Modules\Newsletter\Models\MailList;
+use Corals\Modules\Newsletter\Models\Subscriber;
 use Illuminate\Support\Facades\Mail;
+use Jenssegers\Agent\Agent;
 
 class Newsletter
 {
@@ -41,7 +41,7 @@ class Newsletter
         try {
             $emailLoggersStatus = [];
 
-            if (!is_null($emailLogger)) {
+            if (! is_null($emailLogger)) {
                 $subscribers = $email->subscribers()->where('newsletter_email_logger.id', $emailLogger->id)->get();
             } else {
                 $subscribers = $email->subscribers()->where('newsletter_email_logger.status', 'draft')->get();
@@ -55,7 +55,6 @@ class Newsletter
                     $emailLoggersStatus[$subscriber->id] = [
                         'status' => 'sent',
                     ];
-
                 } catch (\Exception $e) {
                     $emailLoggersStatus[$subscriber->id] = [
                         'status' => 'failed',

@@ -59,5 +59,4 @@ class MailListDataTable extends BaseDataTable
             'updated_at' => ['title' => trans('Corals::attributes.updated_at'), 'class' => 'col-md-2', 'type' => 'date', 'active' => true],
         ];
     }
-
 }

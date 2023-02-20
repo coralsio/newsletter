@@ -31,7 +31,7 @@ class SubscriberRequest extends BaseRequest
 
         if ($this->isUpdate() || $this->isStore()) {
             $rules = array_merge($rules, [
-                'name' => 'max:191'
+                'name' => 'max:191',
             ]);
         }
 

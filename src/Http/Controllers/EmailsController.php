@@ -38,7 +38,6 @@ class EmailsController extends BaseController
         return $dataTable->render('Newsletter::emails.index');
     }
 
-
     /**
      * @param EmailRequest $request
      * @return $this
@@ -51,7 +50,6 @@ class EmailsController extends BaseController
 
         return view('Newsletter::emails.create_edit')->with(compact('email'));
     }
-
 
     /**
      * @param EmailRequest $request
@@ -70,7 +68,7 @@ class EmailsController extends BaseController
                 Newsletter::sendEmail($email);
 
                 $email->update(['status' => 'sent']);
-            } else if ($request->get('submit_type') == 'draft') {
+            } elseif ($request->get('submit_type') == 'draft') {
                 $email->update(['status' => 'draft']);
             }
 
@@ -102,13 +100,12 @@ class EmailsController extends BaseController
             $api_call_id = uniqid();
 
             $emailLoggers[$subscriber->id] = [
-                'api_call_id' => $api_call_id
+                'api_call_id' => $api_call_id,
             ];
         }
 
         $email->subscribers()->sync($emailLoggers);
     }
-
 
     /**
      * @param EmailRequest $request
@@ -145,7 +142,7 @@ class EmailsController extends BaseController
             if ($request->get('submit_type') == 'send') {
                 Newsletter::sendEmail($email);
                 $data['status'] = 'sent';
-            } else if ($request->get('submit_type') == 'draft') {
+            } elseif ($request->get('submit_type') == 'draft') {
                 $data['status'] = 'draft';
             }
 

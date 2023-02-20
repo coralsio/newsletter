@@ -153,7 +153,6 @@ class SubscribersController extends BaseController
         return view('Newsletter::subscribers.import.import_subscribers');
     }
 
-
     public function importSubscribers(SubscriberImportRequest $request)
     {
         $wrongCounter = 0;
@@ -181,11 +180,14 @@ class SubscribersController extends BaseController
                 flash(trans('Newsletter::exception.subscribers.no_file'))->warning();
 
                 return redirectTo($this->resource_url);
+
                 break;
             case 'clear':
                 @unlink(session('import-subscribers-report'));
                 session()->forget('import-subscribers-report');
+
                 return redirectTo($this->resource_url);
+
                 break;
         }
     }

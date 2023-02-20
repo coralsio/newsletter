@@ -15,6 +15,6 @@ Route::group(['prefix' => 'newsletter'], function () {
     Route::resource('emails', 'EmailsController');
 
     Route::resource('email-loggers', 'EmailLoggersController')->except([
-        'update', 'edit', 'create', 'store'
+        'update', 'edit', 'create', 'store',
     ]);
 });

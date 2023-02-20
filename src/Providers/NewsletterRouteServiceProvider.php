@@ -2,8 +2,8 @@
 
 namespace Corals\Modules\Newsletter\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class NewsletterRouteServiceProvider extends ServiceProvider
 {

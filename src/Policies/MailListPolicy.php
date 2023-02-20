@@ -8,7 +8,6 @@ use Corals\User\Models\User;
 
 class MailListPolicy extends BasePolicy
 {
-
     /**
      * @param User $user
      * @return bool
@@ -18,6 +17,7 @@ class MailListPolicy extends BasePolicy
         if ($user->can('Newsletter::mail_list.view')) {
             return true;
         }
+
         return false;
     }
 
@@ -40,6 +40,7 @@ class MailListPolicy extends BasePolicy
         if ($user->can('Newsletter::mail_list.update')) {
             return true;
         }
+
         return false;
     }
 
@@ -53,7 +54,7 @@ class MailListPolicy extends BasePolicy
         if ($user->can('Newsletter::mail_list.delete')) {
             return true;
         }
+
         return false;
     }
-
 }

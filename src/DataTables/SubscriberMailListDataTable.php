@@ -3,7 +3,6 @@
 namespace Corals\Modules\Newsletter\DataTables;
 
 use Corals\Foundation\DataTables\BaseDataTable;
-use Corals\Modules\Newsletter\Models\MailList;
 use Corals\Modules\Newsletter\Models\Subscriber;
 use Corals\Modules\Newsletter\Transformers\MailListTransformer;
 use Yajra\DataTables\EloquentDataTable;
@@ -33,9 +32,10 @@ class SubscriberMailListDataTable extends BaseDataTable
     public function query(Subscriber $model)
     {
         $subscriber = $this->request->route('subscriber');
-        if (!$subscriber) {
+        if (! $subscriber) {
             abort('404');
         }
+
         return $subscriber->mailLists()->where('newsletter_mail_list_subscriber.subscriber_id', $subscriber->id)->withCount('subscribers');
     }
 
@@ -64,5 +64,4 @@ class SubscriberMailListDataTable extends BaseDataTable
             'updated_at' => ['title' => trans('Corals::attributes.updated_at'), 'class' => 'col-md-2', 'type' => 'date', 'active' => true],
         ];
     }
-
 }

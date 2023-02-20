@@ -9,7 +9,7 @@ use Corals\Modules\Newsletter\database\seeds\NewsletterDatabaseSeeder;
 class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
 {
     protected $migrations = [
-        NewsletterTables::class
+        NewsletterTables::class,
     ];
 
     protected function providerBooted()
