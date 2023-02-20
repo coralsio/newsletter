@@ -29,7 +29,7 @@ class MailListsTest extends TestCase
         $name = 'MailLists';
         $response = $this->post('newsletter/mail-lists', [
             'name' => $name,
-            'status' => 'active'
+            'status' => 'active',
         ]);
 
         $this->mailList = MailList::query()->where('name', $name)->first();
@@ -71,13 +71,13 @@ class MailListsTest extends TestCase
         if ($this->mailList) {
             $response = $this->put('newsletter/mail-lists/' . $this->mailList->hashed_id, [
                 'name' => $this->mailList->name,
-                'status' => 'inactive'
+                'status' => 'inactive',
             ]);
 
             $response->assertRedirect('newsletter/mail-lists');
             $this->assertDatabaseHas('newsletter_mail_lists', [
                 'name' => $this->mailList->name,
-                'status' => 'inactive'
+                'status' => 'inactive',
             ]);
         }
 
@@ -96,7 +96,7 @@ class MailListsTest extends TestCase
             $this->isSoftDeletableModel(MailList::class);
             $this->assertDatabaseMissing('newsletter_mail_lists', [
                 'name' => $this->mailList->name,
-                'status' => $this->mailList->status
+                'status' => $this->mailList->status,
             ]);
         }
         $this->assertTrue(true);

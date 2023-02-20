@@ -41,7 +41,7 @@ class EmailsTest extends TestCase
             'mail_lists' => $this->mailLists,
             'subject' => $subject,
             'email_body' => $emailBody,
-            'submit_type' => $types[$type]
+            'submit_type' => $types[$type],
         ]);
 
         $this->email = Email::query()->where('subject', $subject)
@@ -51,7 +51,7 @@ class EmailsTest extends TestCase
         $this->assertDatabaseHas('newsletter_emails', [
             'subject' => $this->email->subject,
             'email_body' => $this->email->email_body,
-            'status' => $this->email->status
+            'status' => $this->email->status,
         ]);
 
         $response->assertDontSee('The given data was invalid')
@@ -88,12 +88,11 @@ class EmailsTest extends TestCase
 
         if ($this->email) {
             if ($this->email->status == 'draft') {
-
                 $response = $this->put('newsletter/emails/' . $this->email->hashed_id, [
                     'subject' => $this->email->subject,
                     'email_body' => $this->email->email_body,
                     'submit_type' => 'send',
-                    'mail_lists' => $this->mailLists
+                    'mail_lists' => $this->mailLists,
                 ]);
 
                 $this->assertDatabaseHas('newsletter_emails', [
@@ -122,6 +121,4 @@ class EmailsTest extends TestCase
         }
         $this->assertTrue(true);
     }
-
 }
-

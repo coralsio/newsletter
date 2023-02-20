@@ -37,7 +37,7 @@ class SubscribersTest extends TestCase
             'email' => $email,
             'name' => 'subscribers',
             'status' => 'active',
-            'mail_lists' => $this->mailLists
+            'mail_lists' => $this->mailLists,
         ]);
 
         $this->subscriber = Subscriber::query()->where('email', $email)->first();
@@ -82,14 +82,14 @@ class SubscribersTest extends TestCase
                 'email' => $this->subscriber->email,
                 'name' => $this->subscriber->name,
                 'status' => 'inactive',
-                'mail_lists' => $this->mailLists
+                'mail_lists' => $this->mailLists,
             ]);
 
             $response->assertRedirect('newsletter/subscribers');
             $this->assertDatabaseHas('newsletter_subscribers', [
                 'email' => $this->subscriber->email,
                 'name' => $this->subscriber->name,
-                'status' => 'inactive'
+                'status' => 'inactive',
 
             ]);
         }
@@ -110,7 +110,7 @@ class SubscribersTest extends TestCase
             $this->assertDatabaseMissing('newsletter_subscribers', [
                 'email' => $this->subscriber->email,
                 'name' => $this->subscriber->name,
-                'status' => $this->subscriber->status
+                'status' => $this->subscriber->status,
             ]);
         }
         $this->assertTrue(true);
