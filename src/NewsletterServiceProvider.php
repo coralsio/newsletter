@@ -22,6 +22,13 @@ class NewsletterServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        $this->registerModulesPackages();
+        if (!\DB::table('modules')->where('code', 'corals-newsletter')
+            ->where('installed', true)
+            ->exists()) {
+            return;
+        };
+
         // Load view
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Newsletter');
 
@@ -34,12 +41,16 @@ class NewsletterServiceProvider extends ServiceProvider
 
         $this->registerCustomFieldsModels();
         $this->registerWidgets();
-
-        $this->registerModulesPackages();
     }
 
     public function register()
     {
+        if (!\DB::table('modules')->where('code', 'corals-newsletter')
+            ->where('installed', true)
+            ->exists()) {
+            return;
+        };
+
         $this->mergeConfigFrom(__DIR__ . '/config/newsletter.php', 'newsletter');
 
         $this->app->register(NewsletterRouteServiceProvider::class);
