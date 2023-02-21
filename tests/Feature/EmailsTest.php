@@ -28,9 +28,8 @@ class EmailsTest extends TestCase
 
     public function test_emails_store()
     {
-        foreach (Newsletter::getAllMailLists() as $id => $mailList) {
-            $this->mailLists[] = $id;
-        }
+        $this->mailLists = Newsletter::getAllMailLists();
+        $mailList = array_rand($this->mailLists);
 
         $subject = 'email';
         $emailBody = 'email';
@@ -38,14 +37,18 @@ class EmailsTest extends TestCase
         $type = array_rand($types);
 
         $response = $this->post('newsletter/emails', [
-            'mail_lists' => $this->mailLists,
+            'mail_lists' => [$mailList],
             'subject' => $subject,
             'email_body' => $emailBody,
             'submit_type' => $types[$type],
         ]);
 
+        $status = 'draft';
+        if($types[$type] == 'send'){
+            $status = 'sent';
+        }
         $this->email = Email::query()->where('subject', $subject)
-            ->where('status', $types[$type])
+            ->where('status', $status)
             ->first();
 
         $this->assertDatabaseHas('newsletter_emails', [
@@ -61,6 +64,7 @@ class EmailsTest extends TestCase
     public function test_emails_show()
     {
         $this->test_emails_store();
+
         if ($this->email) {
             $response = $this->get('newsletter/emails/' . $this->email->hashed_id);
 
@@ -72,6 +76,7 @@ class EmailsTest extends TestCase
     public function test_emails_edit()
     {
         $this->test_emails_store();
+
         if ($this->email) {
             if ($this->email->status == 'draft') {
                 $response = $this->get('newsletter/emails/' . $this->email->hashed_id . '/edit');
@@ -88,11 +93,13 @@ class EmailsTest extends TestCase
 
         if ($this->email) {
             if ($this->email->status == 'draft') {
+                $mailList = array_rand($this->mailLists);
+
                 $response = $this->put('newsletter/emails/' . $this->email->hashed_id, [
                     'subject' => $this->email->subject,
                     'email_body' => $this->email->email_body,
                     'submit_type' => 'send',
-                    'mail_lists' => $this->mailLists,
+                    'mail_lists' => [$mailList],
                 ]);
 
                 $this->assertDatabaseHas('newsletter_emails', [
