@@ -23,7 +23,7 @@ class NewsletterServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerModulesPackages();
-        if (!\DB::table('modules')->where('code', 'corals-newsletter')
+        if (! \DB::table('modules')->where('code', 'corals-newsletter')
             ->where('installed', true)
             ->exists()) {
             return;
@@ -45,7 +45,7 @@ class NewsletterServiceProvider extends ServiceProvider
 
     public function register()
     {
-        if (!\DB::table('modules')->where('code', 'corals-newsletter')
+        if (! \DB::table('modules')->where('code', 'corals-newsletter')
             ->where('installed', true)
             ->exists()) {
             return;
