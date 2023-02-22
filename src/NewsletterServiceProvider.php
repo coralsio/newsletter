@@ -28,7 +28,6 @@ class NewsletterServiceProvider extends BasePackageServiceProvider
 
     public function bootPackage()
     {
-        $this->registerModulesPackages();
         if (! \DB::table('modules')->where('code', 'corals-newsletter')
             ->where('installed', true)
             ->exists()) {
