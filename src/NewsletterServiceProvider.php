@@ -25,7 +25,6 @@ class NewsletterServiceProvider extends BasePackageServiceProvider
      */
     protected $packageCode = 'corals-newsletter';
 
-
     public function bootPackage()
     {
         if (! \DB::table('modules')->where('code', 'corals-newsletter')
