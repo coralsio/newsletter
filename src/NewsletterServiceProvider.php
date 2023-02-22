@@ -25,7 +25,6 @@ class NewsletterServiceProvider extends BasePackageServiceProvider
      */
     protected $packageCode = 'corals-newsletter';
 
-
     public function bootPackage()
     {
         $this->registerModulesPackages();
