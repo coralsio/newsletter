@@ -2,6 +2,7 @@
 
 namespace Corals\Modules\Newsletter;
 
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 use Corals\Modules\Newsletter\Facades\Newsletter;
 use Corals\Modules\Newsletter\Models\Email;
 use Corals\Modules\Newsletter\Models\MailList;
@@ -16,11 +17,16 @@ use Corals\Modules\Newsletter\Widgets\EmailLoggerByStatusWidget;
 use Corals\Settings\Facades\Modules;
 use Corals\Settings\Facades\Settings;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
 
-class NewsletterServiceProvider extends ServiceProvider
+class NewsletterServiceProvider extends BasePackageServiceProvider
 {
-    public function boot()
+    /**
+     * @var
+     */
+    protected $packageCode = 'corals-newsletter';
+
+
+    public function bootPackage()
     {
         // Load view
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'Newsletter');
@@ -38,7 +44,7 @@ class NewsletterServiceProvider extends ServiceProvider
         $this->registerModulesPackages();
     }
 
-    public function register()
+    public function registerPackage()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/newsletter.php', 'newsletter');
 
@@ -67,7 +73,7 @@ class NewsletterServiceProvider extends ServiceProvider
         \Shortcode::addWidget('email_logger_by_device_type', EmailLoggerByDeviceTypeWidget::class);
     }
 
-    protected function registerModulesPackages()
+    public function registerModulesPackages()
     {
         Modules::addModulesPackages('corals/newsletter');
     }
