@@ -44,7 +44,7 @@ class EmailsTest extends TestCase
         ]);
 
         $status = 'draft';
-        if($types[$type] == 'send'){
+        if ($types[$type] == 'send') {
             $status = 'sent';
         }
         $this->email = Email::query()->where('subject', $subject)
@@ -105,7 +105,7 @@ class EmailsTest extends TestCase
                 $this->assertDatabaseHas('newsletter_emails', [
                     'subject' => $this->email->subject,
                     'email_body' => $this->email->email_body,
-                    'status' => 'sent'
+                    'status' => 'sent',
                 ]);
 
                 $response->assertRedirect('newsletter/emails');
