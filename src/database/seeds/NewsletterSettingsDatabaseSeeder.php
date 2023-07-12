@@ -13,7 +13,7 @@ class NewsletterSettingsDatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        \DB::table('settings')->insert([
-//        ]);
+        //        \DB::table('settings')->insert([
+        //        ]);
     }
 }
