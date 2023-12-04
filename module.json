@@ -12,6 +12,6 @@
     "autoload": "psr-4",
     "icon": "fa fa-file-text-o",
     "require": {
-        "corals-foundation": "^6.0"
+        "corals-foundation": "^10.0.0"
     }
 }
